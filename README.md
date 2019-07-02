@@ -1,5 +1,5 @@
 # react-apollo-client
-# react-apollo 框架前端搭建
+## react-apollo graphql 框架前端搭建
 
 启动方式：
 1. yarn install (首次需要安装所有的依赖项)
