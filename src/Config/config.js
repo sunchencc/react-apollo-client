@@ -6,7 +6,7 @@ const uri =
   {
     host: 'localhost',
     
-    port: '4000',
+    port: '4001',
     
     get: () =>  `http://${ uri.host }:${ uri.port }/graphql`
     

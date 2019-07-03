@@ -1,12 +1,13 @@
 import React from 'react';
 import
 {
-  Query,
-  Mutation
+  Query
 }
 from 'react-apollo';
 
-import { query_demo } from './Graphql/graphql'
+import { get_persons } from './Graphql/graphql'
+
+import Table from './Component/Table';
 
 class App extends React.Component
 {
@@ -14,26 +15,33 @@ class App extends React.Component
   {
     const element =
       
-      <Query query={ query_demo }  fetchPolicy={ 'cache-and-network' }>
-        {
-          ({ loading, error, data }) =>
-          {
-            if (loading)
+      <div className={ 'container' }>
+        
+        <div className={ 'row mt-4' }>
+  
+          <Query query={ get_persons }  fetchPolicy={ 'cache-and-network' }>
             {
-              return <p>加载中</p>;
+              ({ loading, error, data, refetch }) =>
+              {
+                //refetch 是为了成功以后进行再次查询
+                if (loading)
+                {
+                  return <p>加载中</p>;
+                }
+        
+                if (error)
+                {
+                  return <p>错误</p>;
+                }
+        
+                return <Table data={ data.get_persons } refetch={ refetch }/>;
+              }
             }
-            
-            if (error)
-            {
-              return <p>错误</p>;
-            }
-            
-            console.log(data);
-            
-            return 'success';
-          }
-        }
-      </Query>
+          </Query>
+          
+        </div>
+        
+      </div>
     ;
     
     return element;

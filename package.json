@@ -2,6 +2,7 @@
   "name": "react-apollo-client",
   "version": "0.1.0",
   "private": true,
+  "license": "sun",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
